@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='tictacApp'>
+<head>
+  <meta charset="UTF-8">
+  <title>TicTacToe Angular</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="tictacController.js"></script>
+</head>
+
+<body ng-controller="TictacController as tic">
+
+  <div ng-if="tic.winner"> And the Winner is: {{ tic.winner === 'X'? 'Player 1' : 'Player 2' }} </div>
+  
+  <div id="grid">
+    
+    <div ng-repeat="i in tic.grid track by $index" id="{{$index+1}}"
+    ng-model='this.player' ng-click='tic.processClick($index)'
+    class='cell'>
+      <p> {{ tic.clickedBoxes[$index] }} </p>
+    </div>
+
+  </div>
+
+
+
+<!--   <div class="row">
+    <div id='1' class="cell"></div><div id='2' class="cell"></div><div id='3' class="cell"></div>
+  </div>  
+  <div class="row">
+    <div id='4' class="cell"></div><div id='5' class="cell"></div><div id='6' class="cell"></div>
+  </div>  
+  <div class="row">
+    <div id='7' class="cell"></div><div id='8' class="cell"></div><div id='9' class="cell"></div>
+  </div> -->
+
+
+</body>
+</html>
